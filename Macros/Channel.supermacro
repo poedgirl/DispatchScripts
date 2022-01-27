@@ -1,0 +1,3 @@
+{{Input:Channel}}
+{{FUNC:CONCAT:ChannelTitle:CHN:$SMENTER:$Channel}}
+{{SetKeyTitle:$ChannelTitle}}

@@ -1,0 +1,3 @@
+{{Input:Date}}
+{{FUNC:CONCAT:DateTitle:DATE:$SMENTER:$Date}}
+{{SetKeyTitle:$DateTitle}}

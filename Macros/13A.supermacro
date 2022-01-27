@@ -1,0 +1,17 @@
+{{VarSetFromFile:Template:F:\DispatchScripts\Macros\13A.txt}}
+{{FUNC:CONCAT:PasteText:$Template:$Channel: :$Location}}
+{{SetClipboard:$PasteText}}
+
+{{KeyDown:T}}{{PAUSE:1}}{{KeyUp:T}}
+{{PAUSE:100}}
+{{CTRL}{V}}{{ENTER}}
+
+{{PAUSE:100}}
+{{KeyDown:T}}{{PAUSE:1}}{{KeyUp:T}}
+{{PAUSE:100}}
+{{CTRL}{V}}{{ENTER}}
+
+{{PAUSE:100}}
+{{KeyDown:T}}{{PAUSE:1}}{{KeyUp:T}}
+{{PAUSE:100}}
+{{CTRL}{V}}{{ENTER}}

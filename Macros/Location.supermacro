@@ -1,0 +1,3 @@
+{{Input:Location}}
+{{FUNC:CONCAT:LocationTitle:LOC:$SMENTER:$Location}}
+{{SetKeyTitle:$LocationTitle}}
