@@ -20,8 +20,8 @@ void Main()
 		foreach (var channel in channels.Where(c => !string.IsNullOrWhiteSpace(c.Input.Text)))
 		{
 			sb.Append($"📢 CH{channel.ChannelNo}: {channel.Input.Text}");
-			if (channel.Dispatchers.Text != "0") {
-				sb.AppendLine($" ({channel.Dispatchers.Text} dispatcher{(channel.Dispatchers.Text != "1" ? "s" : "")})");
+			if (channel.Units.Text != "0") {
+				sb.AppendLine($" ({channel.Units.Text} unit{(channel.Units.Text != "1" ? "s" : "")})");
 			} else {
 				sb.AppendLine();
 			}
@@ -37,12 +37,12 @@ void Main()
 
 	channels = Enumerable.Range(1, 10).Select(idx => {
 		var input = new TextBox();
-		var dispatchers = new TextBox();
-		dispatchers.HtmlElement.SetAttribute("type", "number");
-		dispatchers.Width = "50px";
-		dispatchers.Text = "0";
+		var units = new TextBox();
+		units.HtmlElement.SetAttribute("type", "number");
+		units.Width = "50px";
+		units.Text = "0";
 
-		var div = new Div(new Span($"Channel {idx}: "), input, dispatchers);
+		var div = new Div(new Span($"Channel {idx}: "), input, units);
 		
 		EventHandler<PropertyEventArgs> keyDownEvent = (object sender, PropertyEventArgs args) => {
 			if (args.Properties["code"] == "Enter" || args.Properties["code"] == "NumpadEnter") {
@@ -51,18 +51,17 @@ void Main()
 		};
 
 		input.HtmlElement.AddEventListener("keydown", new[] { "code" }, keyDownEvent);
-		dispatchers.HtmlElement.AddEventListener("keydown", new[] { "code" }, keyDownEvent);
+		units.HtmlElement.AddEventListener("keydown", new[] { "code" }, keyDownEvent);
 		
 		return new Channel {
 			ChannelNo = idx,
 			Container = div,
-			Dispatchers = dispatchers,
+			Units = units,
 			Input = input
 		};
 	}).ToList();
 	
 	channels[1].Input.Text = "Normal Patrol";
-	channels[1].Dispatchers.Text = "1";
 	
 	foreach (var channel in channels)
 	{
@@ -102,5 +101,5 @@ public class Channel
 	public int ChannelNo { get; set; }
 	public Div Container { get; set; }
 	public TextBox Input { get; set; }
-	public TextBox Dispatchers { get; set; }
+	public TextBox Units { get; set; }
 }
