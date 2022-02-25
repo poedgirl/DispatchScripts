@@ -14,8 +14,7 @@ void Main()
 		"Fleeca Harmony",
 		"Bobcat",
 		"Vault",
-		"Yacht",
-		"Casino"
+		"Yacht"
 	};
 	
 	new LINQPad.Controls.Literal("h1", "10-90 Tracker").Dump();
@@ -121,7 +120,7 @@ public enum InstStatus : int
 {
 	[InstStatus("❌", "Not Hit")]
 	NotHit = 1,
-	[InstStatus("🚨", "Being Hit")]
+	[InstStatus("⚠️", "Being Hit")]
 	BeingHit,
 	[InstStatus("🚓", "Has Response")]
 	HasResponse,
